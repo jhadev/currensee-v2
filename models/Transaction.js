@@ -1,6 +1,5 @@
-  
 import mongoose from 'mongoose';
-const {Schema} = mongoose
+const { Schema } = mongoose;
 
 const Transaction = new Schema({
   description: {
@@ -26,4 +25,4 @@ const Transaction = new Schema({
   }
 });
 
-export default Transaction
+export default Transaction;

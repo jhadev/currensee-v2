@@ -1,6 +1,6 @@
 import express, { json, urlencoded } from 'express';
 import routes from './routes';
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -9,14 +9,14 @@ const PORT = process.env.PORT || 3001;
 app.use(urlencoded({ extended: true }));
 app.use(json());
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
 }
 // Add routes, both API and view
-// app.use(routes);
+app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/currensee-v2");
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/currensee-v2');
 
 // Start the API server
 app.listen(PORT, () => {
